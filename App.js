@@ -10,6 +10,7 @@ export default class App extends Component {
         this.state = {
             i: 0,
             j: 0,
+            disable: true,
             pic: [require('./picture/p1.png'), require('./picture/p2.png'), require('./picture/p3.png')],
             pro: [require('./picture/process.gif'), require('./picture/non_empty.png'), require('./picture/empty.png')],
             gumball: [require('./picture/gumball_1.png'), require('./picture/gumball_2.png'), require('./picture/gumball_3.png')]
@@ -21,9 +22,12 @@ export default class App extends Component {
     }
 
     handleGet() {
+
+        this.setState({disable: false});
         // if the value we get mean that shelf is not empty
         // if ()
         this.setState({j: 1});
+        
 
         // if the value we get mean that shelf is not empty
         // else if()
@@ -41,6 +45,7 @@ export default class App extends Component {
     handleReset() {
         this.setState({i: 0});
         this.setState({j: 0});
+        this.setState({disable: true})
     }
 
 
@@ -69,10 +74,11 @@ export default class App extends Component {
                 <div style={{textAlign:"center"}}>
 
 
-                    <button onClick={this.handleGet} class="btn btn-primary" style={{marginTop:50, width:120, height:50, marginRight:30}}>GET VALUE</button>
-                    <button class="btn btn-warning" onClick={this.handleWait} style={{marginTop:50, width:120, height:50, marginRight:30}}          >WAIT</button>
-                    <button class="btn btn-danger" onClick={this.handleAbort} style={{marginTop:50, width:120, height:50, marginRight:30}}>ABORT</button>
-                    <button onClick={this.handleReset} class="btn btn-success" style={{marginTop:50, width:120, height:50}}>RESET</button>
+                    <button onClick={this.handleGet} class="btn btn-primary" style={{marginTop:50, width:120, height:50, marginRight:30}}           disabled={!this.state.disable}>GET VALUE</button>
+                    <button class="btn btn-warning" onClick={this.handleWait} style={{marginTop:50, width:120, height:50, marginRight:30}}          disabled={this.state.disable}>WAIT</button>
+                    <button class="btn btn-danger" onClick={this.handleAbort} style={{marginTop:50, width:120, height:50, marginRight:30}}          disabled={this.state.disable}>ABORT</button>
+                    <button onClick={this.handleReset} class="btn btn-success" style={{marginTop:50, width:120, height:50}}
+                            disabled={this.state.disable}>RESET</button>
 
                 </div>
 
