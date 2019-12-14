@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default class App extends Component {
 
@@ -10,9 +10,9 @@ export default class App extends Component {
         this.state = {
             i: 0,
             j: 0,
-            pic: [require('./p1.png'), require('./p2.png'), require('./p3.png')],
-            pro: [require('./process.gif'), require('./non_empty.png'), require('./empty.png')],
-            gumball: [require('./gumball_1.png'), require('./gumball_2.png'), require('./gumball_3.png')]
+            pic: [require('./picture/p1.png'), require('./picture/p2.png'), require('./picture/p3.png')],
+            pro: [require('./picture/process.gif'), require('./picture/non_empty.png'), require('./picture/empty.png')],
+            gumball: [require('./picture/gumball_1.png'), require('./picture/gumball_2.png'), require('./picture/gumball_3.png')]
         }
         this.handleGet = this.handleGet.bind(this)
         this.handleWait = this.handleWait.bind(this)
